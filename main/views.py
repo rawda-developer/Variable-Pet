@@ -1,10 +1,16 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.views.generic import ListView, DetailView
+from .models import Pet, Vaccine
 
 
-def home(request):
-    return HttpResponse('<h1>Home</h1>')
+class Home(ListView):
+    model = Pet
+    context_object_name = 'pets'
+    template_name = 'main/home.html'
 
 
-def pet_details(request, pk=1):
-    return HttpResponse('<h1>Pet Detail</h1>')
+class PetDetails(DetailView):
+    model = Pet
+    context_object_name = 'pet'
+    template_name = 'main/pet_details.html'
