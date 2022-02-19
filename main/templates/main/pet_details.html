@@ -1,1 +1,30 @@
-<h1>Pet Details {{pet.name}} - {{pet.breed}}</h1>
+<h1>{{pet.name|capfirst}}</h1>
+{% if pet.breed %}
+<p>Breed: {{pet.breed}}</p>
+{% endif %}
+{% if pet.submitter %}
+<p>Submitter: {{pet.submitter}}</p>
+{% endif %}
+{% if pet.species %}
+<p>Species: {{pet.species}}</p>
+{% endif %}
+{% if pet.description %}
+<p>description: {{pet.description}}</p>
+{% endif %}
+{% if pet.sex %}
+<p>sex: {{pet.sex}}</p>
+{% endif %}
+{% if pet.submission_date %}
+<p>submission date: {{pet.submission_date}}</p>
+{% endif %}
+{% if pet.age %}
+<p>age: {{pet.age}}</p>
+{% endif %}
+{% if pet.vaccinations.all %}
+<h2>Vaccinations</h2>
+<ul>
+    {% for vaccine in pet.vaccinations.all %}
+    <li>{{vaccine.name}}</li>
+    {% endfor %}
+</ul>
+{% endif %}

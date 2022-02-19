@@ -1,1 +1,4 @@
-<h1>Home Page</h1>
+<h1>All Pets</h1>
+{% for pet in pets %}
+<li><a href="{% url 'pet.details' pk=pet.id %}">{{pet.name}}</a></li>
+{% endfor %}
